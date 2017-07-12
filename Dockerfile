@@ -1,4 +1,4 @@
-FROM node:4
+FROM node:4.8.4
 
 RUN apt-get update && \
   apt-get install -y \
