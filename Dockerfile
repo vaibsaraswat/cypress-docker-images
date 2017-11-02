@@ -25,3 +25,7 @@ RUN yum install -y nodejs-6.11.3
 # RUN npm install -g npm@5
 RUN node -v
 RUN npm -v
+
+# there is some dependency I cannot figure out missing
+# which gets installed when installing "git*"
+RUN yum install -y git*
