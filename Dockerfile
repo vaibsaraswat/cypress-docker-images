@@ -13,12 +13,19 @@ RUN apt-get update
 # Should install Node 6
 RUN apt-get install -y nodejs
 
-# Install Cypress dependencies
+# Install Git client
+RUN apt-get update && apt-get install -y git
+RUN git --version
+
+# Install Cypress dependencies (separate commands to avoid time outs)
 RUN apt-get install -y \
-    libgtk2.0-0 \
-    libnotify-dev \
+    libgtk2.0-0
+RUN apt-get install -y \
+    libnotify-dev
+RUN apt-get install -y \
     libgconf-2-4 \
     libnss3 \
-    libxss1 \
+    libxss1
+RUN apt-get install -y \
     libasound2 \
     xvfb
