@@ -4,7 +4,7 @@ Thanks for taking the time to contribute! :smile:
 
 ## Code of Conduct
 
-All contributors are expecting to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
+All contributors are expecting to abide by our [Code of Conduct](https://github.com/cypress-io/cypress/blob/develop/CODE_OF_CONDUCT.md).
 
 ## Development
 
@@ -18,12 +18,12 @@ To create a new base image follow these steps
 
 1. run `npm run add:base -- <new version>` script. For example `npm run add:base -- 13.6.0`
 
-It will create a new folder `base/<new version>` and output versions of tools installed: Node, npm, yarn, etc. See [generate-base-image.js](generate-base-image.js) file for details.
+This script will create a new folder in `base/<new version>` and output versions of tools installed: Node, npm, yarn, etc. See [generate-base-image.js](generate-base-image.js) file for details.
 
 2. add new line to [base/README.md](base/README.md) with new image information.
 3. add new folder to Git
 4. update [circle.yml](circle.yml) file by running `npm run build` and commit the changes.
-4. open a pull request.
+5. open a pull request.
 
 The new image will be built and tested on CI and pushed to Docker Hub once the PR is approved and merged to `master`.
 
@@ -52,7 +52,7 @@ This will create new folder `included/<Cypress version>`
 2. add new line to [included/README.md](included/README.md) file with the new image information
 3. add new folder to Git
 4. update [circle.yml](circle.yml) file by running `npm run build` and commit the changes.
-4. open a pull request.
+5. open a pull request.
 
 ## Tagging the latest image
 
@@ -63,9 +63,11 @@ To tag new image, like `base:12.18.2` need to do the following from a local mach
 ```text
 # pull the image to tag
 $ docker pull cypress/base:12.18.2
+
 # tag that image with major version
 $ docker tag cypress/base:12.18.2 cypress/base:12
-# tag that image with "latest"
+
+# or you can tag that image with "latest"
 $ docker tag cypress/base:12.18.2 cypress/base:latest
 
 # push the new images (which are the same)
@@ -73,28 +75,38 @@ $ docker push cypress/base:12
 $ docker push cypress/base:latest
 ```
 
-## Bonus: smaller images
+### Commit Message Guidelines
 
-Pull request [#83](https://github.com/cypress-io/cypress-docker-images/pull/83) shows how to create smaller Docker images. Follow that PR's advice when creating new images.
+We have guidelines around how commit messages should look. This leads to _more readable messages_ that are easy to follow when looking through the _project history_.
 
-To see the final size of an image, you can use command [`docker images`](https://docs.docker.com/engine/reference/commandline/images/)
+#### Format
 
+Each commmit message should consist of a _header_, a _body_, and a _footer_. The header should have a specific format that includes a _type_, a _scope_ and a _subject_:
+
+```bash
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
 ```
-$ docker images --format "{{.Tag}} {{.Size}}" cypress/base:11.13.0
-11.13.0 969MB
-```
 
-I would put this information into the image folder README file.
+#### Type
 
-## Bonus 2: tool versions
+Must be one of the following: -_build_: Changes that affect the build system or external dependencies -_ci_: Changes to our CI configuration files and scripts -_docs_: Documentation only changes -_feat_: A new feature -_fix_: A bug fix -_ref_: A code change that neither fixes a bug nor adds a feature -_test_: Adding missing tests or correcting existing tests
 
-It is a good idea to print versions of the installed tools and username at the end of the build, like
+#### Scope
 
-```
-# versions of local tools
-RUN echo  " node version:    $(node -v) \n" \
-  "npm version:     $(npm -v) \n" \
-  "yarn version:    $(yarn -v) \n" \
-  "debian version:  $(cat /etc/debian_version) \n" \
-  "user:            $(whoami) \n"
-```
+The scope is optional and should be the name of the type of image that was created or affected -_base_ -_browsers_ -_included_
+
+#### Subject
+
+The subject contains a succinct descript of the change that should _not_ end in a `period (.)` or should _not_ begin with a capitalized letter
+
+#### Body
+
+The body should include the motivation for the change and constrast this with the previous behavior
+
+#### Footer
+
+The footer should contain a closing reference to an issue. `ie: Closes #1234`
