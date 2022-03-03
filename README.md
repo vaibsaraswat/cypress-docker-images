@@ -24,6 +24,14 @@ All of the images and tags are published to DockerHub under
 - [https://hub.docker.com/r/cypress/browsers](https://hub.docker.com/r/cypress/browsers)
 - [https://hub.docker.com/r/cypress/included](https://hub.docker.com/r/cypress/included)
 
+## Amazon ECR
+
+Images and tags are also published to Amazon's ECR under
+
+- [https://gallery.ecr.aws/cypress-io/cypress/base](https://gallery.ecr.aws/cypress-io/cypress/base)
+- [https://gallery.ecr.aws/cypress-io/cypress/browsers](https://gallery.ecr.aws/cypress-io/cypress/browsers)
+- [https://gallery.ecr.aws/cypress-io/cypress/included](https://gallery.ecr.aws/cypress-io/cypress/included)
+
 ## Examples
 
 These images have all dependencies necessary to install and run Cypress. Just install your NPM dependencies (including Cypress) and run the tests. We utilize many of these docker images in our own projects, with different CI providers.
