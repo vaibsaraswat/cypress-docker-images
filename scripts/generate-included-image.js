@@ -65,6 +65,7 @@ RUN echo "whoami: $(whoami)" \\
   # uid=0(root) gid=0(root) groups=0(root)
   # which means the current user is root
   && id \\
+  && npm install -g typescript \\
   && npm install -g "cypress@${versionTag}" \\
   && cypress verify \\
   # Cypress cache and installed version
@@ -87,12 +88,13 @@ RUN echo "whoami: $(whoami)" \\
   # plus Electron and bundled Node versions
   && cypress version \\
   && echo  " node version:    $(node -v) \\n" \\
-    "npm version:     $(npm -v) \\n" \\
-    "yarn version:    $(yarn -v) \\n" \\
-    "debian version:  $(cat /etc/debian_version) \\n" \\
-    "user:            $(whoami) \\n" \\
-    "chrome:          $(google-chrome --version || true) \\n" \\
-    "firefox:         $(firefox --version || true) \\n"
+    "npm version:         $(npm -v) \\n" \\
+    "yarn version:        $(yarn -v) \\n" \\
+    "typescript version:  $(tsc -v) \\n" \\
+    "debian version:      $(cat /etc/debian_version) \\n" \\
+    "user:                $(whoami) \\n" \\
+    "chrome:              $(google-chrome --version || true) \\n" \\
+    "firefox:             $(firefox --version || true) \\n"
 
 ENTRYPOINT ["cypress", "run"]
 `
