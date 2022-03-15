@@ -97,8 +97,9 @@ It is a good idea to print versions of the installed tools and username at the e
 ```
 # versions of local tools
 RUN echo  " node version:    $(node -v) \n" \
-  "npm version:     $(npm -v) \n" \
-  "yarn version:    $(yarn -v) \n" \
-  "debian version:  $(cat /etc/debian_version) \n" \
-  "user:            $(whoami) \n"
+  "npm version:         $(npm -v) \n" \
+  "yarn version:        $(yarn -v) \n" \
+  "typescript version:  $(tsc -v) \n" \
+  "debian version:      $(cat /etc/debian_version) \n" \
+  "user:                $(whoami) \n"
 ```
