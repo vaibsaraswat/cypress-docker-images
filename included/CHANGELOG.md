@@ -78,9 +78,22 @@ Name + Tag | Base image
 [cypress/included:9.4.1](9.4.1) | `cypress/browsers:node16.5.0-chrome94-ff93`
 [cypress/included:9.5.0](9.5.0) | `cypress/browsers:node16.5.0-chrome97-ff96`
 [cypress/included:9.5.1](9.5.1) | `cypress/browsers:node16.5.0-chrome97-ff96`
- 
 [cypress/included:9.5.1-node16.14.0-slim-chrome99-ff97](9.5.1-node16.14.0-slim-chrome99-ff97) | `cypress/browsers:node16.14.0-slim-chrome99-ff97`
- 
 [cypress/included:9.5.2](9.5.2) | `cypress/browsers:node16.14.0-slim-chrome99-ff97`
- 
 [cypress/included:9.5.3](9.5.3) | `cypress/browsers:node16.14.0-slim-chrome99-ff97`
+[cypress/included:9.5.4](9.5.4) | `cypress/browsers:node16.14.0-slim-chrome99-ff97`
+[cypress/included:9.6.0](9.6.0) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:9.6.1](9.6.1) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:9.7.0](9.7.0) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.0.0](10.0.0) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.0.1](10.0.1) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.0.2](10.0.2) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.0.3](10.0.3) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.1.0](10.1.0) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.2.0](10.2.0) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.3.0](10.3.0) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.3.1](10.3.1) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.3.1-typescript](10.3.1-typescript) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.4.0](10.4.0) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.5.0](10.5.0) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`
+[cypress/included:10.6.0](10.6.0) | `cypress/browsers:node16.14.2-slim-chrome100-ff99-edge`

@@ -177,20 +177,7 @@ You should also update the \`circle.yml\` file after creating the new image with
 $ npm run build
 \`\`\`
 
-You can test the new image by creating a new project and running headless tests. For example:
-
-\`\`\`shell
-cd /tmp
-mkdir test
-cd test
-npm init --yes
-npm i -D cypress
-npx @bahmutov/cly init
-rm -rf package-lock.json package.json node_modules
-docker run -it -v $PWD:/e2e -w /e2e cypress/included:9.4.1
-\`\`\`
-
-**Tip:** the above commands are in the file [test.sh](test.sh)
+You can test the new image by creating a new project and running headless tests. See the script [test.sh](test.sh) for an example.
 
 The tests should finish successfully using local image. Now push the image to the Docker hub
 
@@ -241,12 +228,19 @@ fs.readFile(changeLogPath, (err, data) => {
     console.error(err)
   }
 
-  const updatedChangeLog = `${data.toString()} \n[cypress/included:${versionTag}](${versionTag}) | \`${baseImageTag}\``
+  const imageExists = data.includes(versionTag)
+
+  if (imageExists) {
+    console.log(`Image already exists in README and CHANGELOG.`)
+    process.exit(1)
+  }
+
+  const updatedChangeLog = `${data.toString()}[cypress/included:${versionTag}](${versionTag}) | \`${baseImageTag}\``
 
   fs.writeFileSync(changeLogPath, updatedChangeLog.trim() + "\n", "utf8")
   console.log("Saved CHANGELOG.md at %s", changeLogPath)
 
-  const readme = `${ReadMeDockerPulls} \n ${updatedChangeLog} \n ${ReadMeInstructions}`
+  const readme = `${ReadMeDockerPulls}\n${updatedChangeLog}\n${ReadMeInstructions}`
 
   fs.writeFileSync(readmePath, readme.trim() + "\n", "utf8")
   console.log("Saved README.md at %s", readmePath)
